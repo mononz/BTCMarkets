@@ -47,11 +47,11 @@ public class BTCMarketsClient {
         }
     }
 
-    public Observable<MarketsTick> getMarketTick(String coin, String currency) {
+    public Observable<MarketsTick> getMarketTick(MarketCoin coin, MarketCurrency currency) {
         return Rx2AndroidNetworking.get("{url}/market/{coin}/{currency}/tick")
                 .addPathParameter("url", BASE_URL)
-                .addPathParameter("coin", coin)
-                .addPathParameter("currency", currency)
+                .addPathParameter("coin", coin.name())
+                .addPathParameter("currency", currency.name())
                 .build()
                 .getObjectObservable(MarketsTick.class);
     }

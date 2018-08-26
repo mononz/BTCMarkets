@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.mononz.btcmarkets.BTCMarketsClient;
+import com.mononz.btcmarkets.MarketCoin;
+import com.mononz.btcmarkets.MarketCurrency;
 import com.mononz.btcmarkets.MarketsTick;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         client = new BTCMarketsClient(this);
         client.setDebug(true);
 
-        disposables.add(client.getMarketTick("XRP", "AUD")
+        disposables.add(client.getMarketTick(MarketCoin.XRP, MarketCurrency.AUD)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableObserver<MarketsTick>() {
