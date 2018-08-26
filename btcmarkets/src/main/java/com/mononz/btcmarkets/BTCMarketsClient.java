@@ -4,14 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import com.androidnetworking.AndroidNetworking;
-import com.instacart.library.truetime.TrueTimeRx;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
-import java.util.Date;
-
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 public class BTCMarketsClient {
 
@@ -27,15 +22,15 @@ public class BTCMarketsClient {
         this.privateKey = privateKey;
         AndroidNetworking.initialize(context);
 
-        TrueTimeRx.build()
-                .initializeRx("time.google.com")
-                .subscribeOn(Schedulers.io())
-                .subscribe(new Consumer<Date>() {
-                    @Override
-                    public void accept(Date date) {
-                        debug("TrueTime was initialized and we have a time: " + date);
-                    }
-                });
+//        TrueTimeRx.build()
+//                .initializeRx("time.google.com")
+//                .subscribeOn(Schedulers.io())
+//                .subscribe(new Consumer<Date>() {
+//                    @Override
+//                    public void accept(Date date) {
+//                        debug("TrueTime was initialized and we have a time: " + date);
+//                    }
+//                });
     }
 
     public void setDebug(boolean debug) {
