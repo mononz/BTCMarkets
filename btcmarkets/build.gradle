@@ -20,7 +20,9 @@ android {
 }
 
 dependencies {
-    implementation 'com.amitshekhar.android:rx2-android-networking:1.0.2'
+    api 'io.reactivex.rxjava2:rxjava:2.2.0'
+    api 'com.amitshekhar.android:rx2-android-networking:1.0.2'
+    api 'com.github.instacart.truetime-android:library-extension-rx:3.3'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
