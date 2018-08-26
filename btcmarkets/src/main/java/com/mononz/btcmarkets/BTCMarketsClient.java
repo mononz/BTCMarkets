@@ -17,6 +17,10 @@ public class BTCMarketsClient {
 
     private static final String BASE_URL = "https://api.btcmarkets.net";
 
+    public BTCMarketsClient(Context context) {
+        AndroidNetworking.initialize(context);
+    }
+
     public BTCMarketsClient(Context context, String apiKey, String privateKey) {
         this.apiKey = apiKey;
         this.privateKey = privateKey;
